@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 					  response.sendRedirect("/list-todo.do");
 					  
 				  }else {
-					  request.getSession().setAttribute("name", null);
+// 					  request.getSession().setAttribute("name", null);
 					  request.setAttribute("invalid", "Invalid Credentials! Enter rijey and pass");
 					  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 				  }
