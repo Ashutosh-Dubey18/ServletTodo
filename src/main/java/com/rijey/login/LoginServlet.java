@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 					  
 				  }else {
 // 					  request.getSession().setAttribute("name", null);
-					  request.setAttribute("invalid", "Invalid Credentials! Enter rijey and pass");
+					  request.setAttribute("invalid", "Invalid Credentials! Enter rijey and pass as credentials");
 					  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 				  }
 			  }
