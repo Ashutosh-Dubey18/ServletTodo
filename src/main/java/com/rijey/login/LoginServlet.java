@@ -1,11 +1,7 @@
 package com.rijey.login;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +30,8 @@ public class LoginServlet extends HttpServlet {
 				  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 			  }
 	  
-	  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	  @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			  throws ServletException, IOException{
 		  
 				  String name = request.getParameter("name");
@@ -45,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 					  
 				  }else {
 // 					  request.getSession().setAttribute("name", null);
-					  request.setAttribute("invalid", "Invalid Credentials! Enter rijey and pass as credentials");
+request.setAttribute("invalid", "Invalid Credentials! Enter user: admin and pass: admin as credentials");
 					  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 				  }
 			  }

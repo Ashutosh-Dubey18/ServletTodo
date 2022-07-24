@@ -10,6 +10,10 @@
 			.container{
 				margin-left: 40px;
 			}
+			.output-list{
+				height: 400px;
+  				overflow: auto;
+			}
 			.footer {
 				position: fixed;
 				bottom: 0;
@@ -27,7 +31,6 @@
 
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a href="/" class="navbar-brand">Brand</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -35,7 +38,7 @@
 	  
 	    <ul class="navbar-nav mr-auto nav navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/home.do">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      
 	      <li class="nav-item">
@@ -59,28 +62,29 @@
 	<br>
 	<div class="container">
 		<p><h2>Welcome ${name}</h2> </p>
-
-		<table class="table table-striped">
-		<caption>List Of Todos</caption> <br>
-			<thead>
-				<th>Description</th>
-				<th>Category</th>
-				<th>Action</th>
-			</thead>
-			<tbody>
-				<c:forEach items="${todo}" var="item">
-					<tr>
-						<td>${item.getName()}</td>
-						<td>${item.getCategory()}</td>
-						<td><a class="btn btn-outline-danger btn-sm" href="delete-todo.do?todos=${item.getName()}">delete</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	
-		<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="btn btn-primary md-5 mt-3 float-right" data-toggle="modal" data-target="#exampleModal">
 		  Add Item
 		</button>
+		<div class="container output-list">
+			<table class="table table-striped overflow-auto">
+			<caption class="text-dark text-bold">- List Of Todos</caption> <br>
+				<thead>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Action</th>
+				</thead>
+				<tbody class="overflow-auto">
+					<c:forEach items="${todo}" var="item">
+						<tr>
+							<td>${item.getName()}</td>
+							<td>${item.getCategory()}</td>
+							<td><a class="btn btn-outline-danger btn-sm" href="delete-todo.do?todos=${item.getName()}">delete</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+				</table>
+			</div>
+	
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
